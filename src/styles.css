@@ -1,0 +1,19 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply p-0 m-0 overflow-hidden bg-black;
+  }
+}
+
+@layer components {
+  .title-container {
+    @apply fixed top-0 w-full bg-black/20 backdrop-blur-md z-10;
+  }
+
+  .title {
+    @apply font-bebas bg-transparent text-white text-4xl md:text-5xl lg:text-6xl text-center m-0 py-4 px-8;
+  }
+}

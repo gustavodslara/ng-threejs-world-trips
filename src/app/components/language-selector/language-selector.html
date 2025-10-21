@@ -1,0 +1,12 @@
+﻿<div class="fixed top-4 right-4 z-50">
+  <select 
+    [(ngModel)]="selectedLanguage"
+    (change)="onLanguageChange()"
+    (wheel)="onWheel($event)"
+    class="bg-black/40 backdrop-blur-md text-white border border-white/20 rounded-lg px-4 py-2 text-sm font-semibold cursor-pointer hover:bg-black/60 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
+  >
+    <option value="en-US">English</option>
+    <option value="pt-BR">PortuguÃªs</option>
+    <option value="es-ES">EspaÃ±ol</option>
+  </select>
+</div>

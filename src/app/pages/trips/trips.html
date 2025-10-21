@@ -1,0 +1,41 @@
+﻿<!-- Space Background -->
+<app-space-background />
+
+<!-- Title -->
+<div class="title-container">
+  <h1 class="title">{{ i18n.t('app.title') }}</h1>
+</div>
+
+<!-- Language Selector -->
+<app-language-selector />
+
+<!-- Earth Viewer -->
+<app-earth-viewer
+  (tripClicked)="onTripClicked($event)"
+  (rightClick)="onRightClick($event)">
+</app-earth-viewer>
+
+<!-- Trip Gallery Modal -->
+<app-trip-gallery-modal
+  *ngIf="selectedTrip"
+  [trip]="selectedTrip"
+  (closeModal)="closeTripModal()"
+  (openImage)="openLightbox($event)">
+</app-trip-gallery-modal>
+
+<!-- Lightbox -->
+<app-lightbox
+  *ngIf="lightboxImages.length > 0"
+  [images]="lightboxImages"
+  [initialIndex]="lightboxIndex"
+  (closeModal)="closeLightbox()">
+</app-lightbox>
+
+<!-- Add Trip Modal -->
+<app-add-trip-modal
+  *ngIf="addTripCoords"
+  [coordinates]="addTripCoords"
+  (closeModal)="closeAddTripModal()"
+  (saveTrip)="onSaveTrip($event)">
+</app-add-trip-modal>
+

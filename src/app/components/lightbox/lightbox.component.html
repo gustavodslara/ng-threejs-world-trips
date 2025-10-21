@@ -1,0 +1,53 @@
+<div class="fixed inset-0 bg-black/95 z-[60] flex items-center justify-center"
+     (click)="onOverlayClick($event)">
+
+  <!-- Close Button -->
+  <button
+    (click)="onClose()"
+    class="absolute top-6 right-6 text-white hover:bg-white/20 rounded-full p-3 transition-colors z-10"
+    [attr.aria-label]="i18n.t('lightbox.close')">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  <!-- Image Counter -->
+  <div class="absolute top-6 left-1/2 transform -translate-x-1/2 text-white text-lg font-semibold bg-black/50 px-4 py-2 rounded-full">
+    <span>{{ counter }}</span>
+  </div>
+
+  <!-- Previous Button -->
+  <button
+    (click)="previousImage()"
+    [disabled]="!canGoPrevious"
+    [class.opacity-30]="!canGoPrevious"
+    [class.cursor-not-allowed]="!canGoPrevious"
+    class="absolute left-6 top-1/2 transform -translate-y-1/2 text-white hover:bg-white/20 rounded-full p-4 transition-colors disabled:hover:bg-transparent"
+    [attr.aria-label]="i18n.t('lightbox.previous')">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
+
+  <!-- Image Container -->
+  <div class="flex items-center justify-center w-full h-full p-20">
+    <img
+      [src]="currentImage"
+      alt="Full size image"
+      [style.opacity]="imageOpacity"
+      class="max-w-full max-h-full object-contain rounded-lg shadow-2xl transition-opacity duration-150" />
+  </div>
+
+  <!-- Next Button -->
+  <button
+    (click)="nextImage()"
+    [disabled]="!canGoNext"
+    [class.opacity-30]="!canGoNext"
+    [class.cursor-not-allowed]="!canGoNext"
+    class="absolute right-6 top-1/2 transform -translate-y-1/2 text-white hover:bg-white/20 rounded-full p-4 transition-colors disabled:hover:bg-transparent"
+    [attr.aria-label]="i18n.t('lightbox.next')">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
+</div>
